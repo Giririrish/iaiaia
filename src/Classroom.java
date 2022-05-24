@@ -38,6 +38,7 @@ public class Classroom { //this class is used as a basic setting selection befor
             }
         }
         //TEST GITHUB
+        //test 2
     }
     public void setRegisterOrder(boolean setting ){//using selection sort to sort the register into register order(by last name).
         Pupil temp = new Pupil("" , "", false);
