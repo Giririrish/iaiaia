@@ -27,18 +27,46 @@ public class Classroom { //this class is used as a basic setting selection befor
         }
 
         //Todo display the temp array list to check if it sorted boyhs first also USE UR PSUDOECODE BRUH
-        for (int x = 0 ; x  < tempArrayList.size(); x ++ ){
-            System.out.println(tempArrayList.get(x). getFirstName());
-        }
-
+       // for (int x = 0 ; x  < tempArrayList.size(); x ++ ){
+       //     System.out.println(tempArrayList.get(x). getFirstName());
+        //}
+        System.out.println();
+        System.out.println("sorted here");
+        SexSwitcher = false;
         pointOfSwitchFemale = register1.getSize() - pointOfSwitch*2;
         if (pointOfSwitch * 2 < register1.getSize()){
             for (int x = 0 ; x < pointOfSwitch * 2 ; x++){
-
+                if (!SexSwitcher){
+                    register1.setPupil(x , tempArrayList.get(x));
+                    SexSwitcher = true;
+                }else if (SexSwitcher){
+                    register1.setPupil(x, tempArrayList.get(x+ pointOfSwitch));
+                    SexSwitcher = false;
+                }
+            }
+            for (int x = pointOfSwitch *2  ; x < register1.getSize() ; x++){
+                register1.setPupil(x, tempArrayList.get(x));
+            }
+        }else if(pointOfSwitch * 2 > register1.getSize()){
+            for (int x = 0 ; x < pointOfSwitchFemale *2 ; x++){
+                if(!SexSwitcher){
+                    register1.setPupil(x , tempArrayList.get(x));
+                    SexSwitcher = true;
+                }else if(SexSwitcher){
+                    register1.setPupil(x , tempArrayList.get(x+ pointOfSwitch));
+                    SexSwitcher = false;
+                }
+            }
+            for (int x = pointOfSwitchFemale * 2 ; x < register1.getSize() ; x++){
+                register1.setPupil(x, tempArrayList.get(x));
             }
         }
-        //TEST GITHUB
-        //test 2
+        System.out.println();
+        System.out.println("displayed here");
+        for (int x = 0 ; x < register1.getSize() ; x++){
+            System.out.println(register1.getPupil(x).getFirstName());
+        }
+
     }
     public void setRegisterOrder(boolean setting ){//using selection sort to sort the register into register order(by last name).
         Pupil temp = new Pupil("" , "", false);
