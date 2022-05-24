@@ -34,9 +34,10 @@ public class Classroom { //this class is used as a basic setting selection befor
         pointOfSwitchFemale = register1.getSize() - pointOfSwitch*2;
         if (pointOfSwitch * 2 < register1.getSize()){
             for (int x = 0 ; x < pointOfSwitch * 2 ; x++){
-                
+
             }
         }
+        //TEST GITHUB
     }
     public void setRegisterOrder(boolean setting ){//using selection sort to sort the register into register order(by last name).
         Pupil temp = new Pupil("" , "", false);
