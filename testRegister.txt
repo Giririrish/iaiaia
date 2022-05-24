@@ -1,0 +1,10 @@
+Isfandiyor,Zamonov,b
+Ben,Walker,b
+Girish,Kharal,g
+Eddie,Rawile,b
+Qax,Qarko,g
+Wax,Warko,g
+Eax,Earko,b
+Rax,Rarko,g
+Tax,Tarko,b
+Yax,Yark,g
