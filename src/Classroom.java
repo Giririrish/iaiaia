@@ -26,47 +26,38 @@ public class Classroom { //this class is used as a basic setting selection befor
             SexSwitcher = true;
         }
 
-        //Todo display the temp array list to check if it sorted boyhs first also USE UR PSUDOECODE BRUH
-       // for (int x = 0 ; x  < tempArrayList.size(); x ++ ){
-       //     System.out.println(tempArrayList.get(x). getFirstName());
-        //}
+
         System.out.println();
         System.out.println("sorted here");
-        SexSwitcher = false;
-        pointOfSwitchFemale = register1.getSize() - pointOfSwitch*2;
-        if (pointOfSwitch * 2 < register1.getSize()){
-            for (int x = 0 ; x < pointOfSwitch * 2 ; x++){
-                if (!SexSwitcher){
-                    register1.setPupil(x , tempArrayList.get(x));
-                    SexSwitcher = true;
-                }else if (SexSwitcher){
-                    register1.setPupil(x, tempArrayList.get(x+ pointOfSwitch));
-                    SexSwitcher = false;
-                }
-            }
-            for (int x = pointOfSwitch *2  ; x < register1.getSize() ; x++){
-                register1.setPupil(x, tempArrayList.get(x));
-            }
-        }else if(pointOfSwitch * 2 > register1.getSize()){
-            for (int x = 0 ; x < pointOfSwitchFemale *2 ; x++){
-                if(!SexSwitcher){
-                    register1.setPupil(x , tempArrayList.get(x));
-                    SexSwitcher = true;
-                }else if(SexSwitcher){
-                    register1.setPupil(x , tempArrayList.get(x+ pointOfSwitch));
-                    SexSwitcher = false;
-                }
-            }
-            for (int x = pointOfSwitchFemale * 2 ; x < register1.getSize() ; x++){
-                register1.setPupil(x, tempArrayList.get(x));
-            }
+        for(int x = 0 ; x < tempArrayList.size() ; x++){
+            System.out.println(tempArrayList.get(x).getFirstName());
         }
+        SexSwitcher = false;
+        pointOfSwitchFemale = register1.getSize() - pointOfSwitch;
+        System.out.println("point of switch male " + pointOfSwitch);
+        System.out.println("point of switch female " + pointOfSwitchFemale);
+
+        if(pointOfSwitch * 2 > register1.getSize()){
+
+        }else if (pointOfSwitch * 2 < register1.getSize()){
+
+        }else if(pointOfSwitch * 2 == register1.getSize()){
+            //todo do mod 2 instead of 2 for loops
+            for(int x =0 ; x < pointOfSwitch  ;x++){
+                register1.setPupil(x * 2  , tempArrayList.get(x));
+            }
+            for(int x = 1  ; x < pointOfSwitch  ;x++){
+                register1.setPupil((x * 2) - 1   , tempArrayList.get((x -1) + pointOfSwitch));
+            }
+            register1.setPupil(register1.getSize() -1 ,tempArrayList.get(tempArrayList.size()-1) );
+        }
+
+
         System.out.println();
         System.out.println("displayed here");
         for (int x = 0 ; x < register1.getSize() ; x++){
             System.out.println(register1.getPupil(x).getFirstName());
         }
-
     }
     public void setRegisterOrder(boolean setting ){//using selection sort to sort the register into register order(by last name).
         Pupil temp = new Pupil("" , "", false);
