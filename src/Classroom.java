@@ -14,19 +14,17 @@ public class Classroom { //this class is used as a basic setting selection befor
         int pointOfSwitch = 0;
         int pointOfSwitchFemale = 0;
         ArrayList<Pupil> tempArrayList = new ArrayList<>();
-        for(int i = 0 ; i < 2; i++){//will fill the temp list with all boys first then all girls at the pointOfSwitch index
-            for(int x = 0 ; x < register1.getSize(); x++) {
+        for(int i = 0 ; i < 2; i++) {//will fill the temp list with all boys first then all girls at the pointOfSwitch index
+            for (int x = 0; x < register1.getSize(); x++) {
                 if (register1.getPupil(x).getSex() == SexSwitcher) {
                     tempArrayList.add(register1.getPupil(x));
-                    if(!SexSwitcher){
+                    if (!SexSwitcher) {
                         pointOfSwitch++;
                     }
                 }
             }
             SexSwitcher = true;
         }
-
-
         System.out.println();
         System.out.println("sorted here");
         for(int x = 0 ; x < tempArrayList.size() ; x++){
@@ -36,20 +34,25 @@ public class Classroom { //this class is used as a basic setting selection befor
         pointOfSwitchFemale = register1.getSize() - pointOfSwitch;
         System.out.println("point of switch male " + pointOfSwitch);
         System.out.println("point of switch female " + pointOfSwitchFemale);
-
+        //TODO sort from temp array list to main register
         if(pointOfSwitch * 2 > register1.getSize()){
 
         }else if (pointOfSwitch * 2 < register1.getSize()){
 
         }else if(pointOfSwitch * 2 == register1.getSize()){
-            //todo do mod 2 instead of 2 for loops
-            for(int x =0 ; x < pointOfSwitch  ;x++){
-                register1.setPupil(x * 2  , tempArrayList.get(x));
+            for(int x =0 ; x < register1.getSize() - 1   ; x = x + 2){
+
+            }
+
+
+
+            for(int x =0 ; x < register1.getSize() - 1   ; x = x + 2){
+                register1.setPupil(x, tempArrayList.get(x / 2));
             }
             for(int x = 1  ; x < pointOfSwitch  ;x++){
                 register1.setPupil((x * 2) - 1   , tempArrayList.get((x -1) + pointOfSwitch));
             }
-            register1.setPupil(register1.getSize() -1 ,tempArrayList.get(tempArrayList.size()-1) );
+            register1.setPupil(register1.getSize() -1 ,tempArrayList.get(pointOfSwitch-1));
         }
 
 
@@ -87,4 +90,3 @@ public class Classroom { //this class is used as a basic setting selection befor
         numberOfSeats = NofSeats;
     }
 }
-

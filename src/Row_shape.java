@@ -1,4 +1,4 @@
-public class Row_shape extends Classroom {// a row shaped classroom can be represented in a 2d array as a grid
+public class Row_shape extends Classroom {// a row shaped classroom can be represented in a 2d array as it is a grid
     int rowLength;
     int rowWidth;
     Pupil[][] grid;
