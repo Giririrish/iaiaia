@@ -16,7 +16,7 @@ public class LinkedList {
         return head;
     }
 
-    public void AddItem(Pupil p){
+    public void addItem(Pupil p){
         ListNode item = new ListNode(p);
         if (head == null) {
             head = item ;
@@ -31,7 +31,15 @@ public class LinkedList {
             previous.setNext(item);
         }
     }
-
-
-
+    public void add(Pupil p , int index){
+        ListNode pupil = new ListNode(p);
+        ListNode current = head;
+        ListNode previous = null;
+        for(int i = 0 ; i < index ; i++){ //if the construct is offset put -1 here
+            previous = current;
+            current = current.getNext();
+        }
+        previous.setNext(pupil);
+        pupil.setNext(current);
+    }
 }
