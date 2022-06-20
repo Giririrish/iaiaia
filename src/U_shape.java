@@ -9,7 +9,7 @@ public class U_shape extends Classroom{
         grid = new Pupil[backRowLength + 2][sideRowLength + 1];
     }
     public void constructPlan(){
-        LinkedList PlanLL = new LinkedList(register1.Register);
+        LinkedList PlanLL = new LinkedList(register1);
         for(int i = 0 ; i < register1.getSize() ; i++){
             PlanLL.addItem(register1.getPupil(i));
         }

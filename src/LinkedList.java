@@ -3,11 +3,11 @@ import java.util.ArrayList;
 public class LinkedList {
     private ListNode head;
 
-    public LinkedList(ArrayList<Pupil> reg){
-        ListNode n = new ListNode(reg.get(0));
+    public LinkedList(Register reg){
+        ListNode n = new ListNode(reg.getPupil(0));
         head = n;
-        for (int i =  1 ; i < reg.size(); i++){
-            n.next = new ListNode(reg.get(i));
+        for (int i =  1 ; i < reg.getSize(); i++){
+            n.next = new ListNode(reg.getPupil(i));
             n = n.next;
         }
     }

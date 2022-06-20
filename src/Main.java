@@ -40,10 +40,16 @@ public class Main {
         textRegRowPlan.constructPlan();
         textRegRowPlan.displayPlan();
         System.out.println("bubble sort here ");
-
         textRegRowPlan.setRegisterOrder(false);
+        System.out.println();
+        System.out.println("ll test");
+        LinkedList testList = new LinkedList(textRegister);
+        System.out.println();
+        System.out.println("get head test");
+        System.out.println(testList.getHead().getValue().getFirstName());
+        System.out.println();
+        System.out.println("get next test");
+        System.out.println(testList.getHead().getNext().getValue().getFirstName());
 
-        System.out.println("boy girl hgewre ");
-        textRegRowPlan.setBoyGirl(true);
     }
 }
