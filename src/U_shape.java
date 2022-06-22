@@ -14,7 +14,7 @@ public class U_shape extends Classroom{
             PlanLL.addItem(register1.getPupil(i));
         }
         Pupil blank = new Pupil(" " , " " , true);
-        //Todo put blank inbetween
+        //Todo put blank inbetween and fininsh the sorting algorithm
         for(int i = 0 ; i < sideRowLength ; i++){
 
         }

@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -50,6 +52,17 @@ public class Main {
         System.out.println();
         System.out.println("get next test");
         System.out.println(testList.getHead().getNext().getValue().getFirstName());
+        System.out.println("get annother next test ");
+        System.out.println(testList.getHead().getNext().getNext().getValue().getFirstName());
 
+
+        System.out.println("Swing operations start");
+        JFrame frame = new JFrame("test frame");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        GUI_Main_Menu main_menu = new GUI_Main_Menu();
+        frame.add(main_menu);
+        frame.setResizable(true);
+        frame.pack();
+        frame.setVisible(true);
     }
 }

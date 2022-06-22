@@ -42,4 +42,5 @@ public class LinkedList {
         previous.setNext(pupil);
         pupil.setNext(current);
     }
+
 }
