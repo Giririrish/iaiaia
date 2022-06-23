@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GUI_Main_Menu extends JPanel {
+public class GUI_Main_Menu extends JPanel implements ActionListener {
     JButton AddRegisterButton;
     JButton EditRegisterButton;
     JButton CreateNewPlanButton;
@@ -11,16 +13,34 @@ public class GUI_Main_Menu extends JPanel {
         this.setBackground(new Color(143, 89, 89));
         setLayout(null);
         AddRegisterButton = new JButton("ADD REGISTER");
-        AddRegisterButton.setBounds(10,10,100,20);
+        AddRegisterButton.setBounds(10,10,150,50);
         EditRegisterButton = new JButton("EDIT REGISTER");
-        EditRegisterButton.setBounds(10,120,100,20);
+        EditRegisterButton.setBounds(10,80,150,50);
         CreateNewPlanButton = new JButton("CREATE NEW PLAN");
-        CreateNewPlanButton.setBounds(10,230,100,20);
+        CreateNewPlanButton.setBounds(10,150,150,50);
         LoadPlanButton = new JButton("LOAD PLAN");
-        LoadPlanButton.setBounds(10,340,100,20);
+        LoadPlanButton.setBounds(10,220,150,50);
+        AddRegisterButton.addActionListener(this);;
+        EditRegisterButton.addActionListener(this);;
+        CreateNewPlanButton.addActionListener(this);;
+        LoadPlanButton.addActionListener(this);;
         add(AddRegisterButton);
         add(EditRegisterButton);
         add(CreateNewPlanButton);
-        add(LoadPlanButton)   ;
+        add(LoadPlanButton);
     }
-}
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("ADD REGISTER")) {
+            System.out.println("add reg men");
+            GUI_Add_Register newAddRegMenu = new GUI_Add_Register();
+        } else if (e.getActionCommand().equals("EDIT REGISTER")) {
+
+        } else if (e.getActionCommand().equals("CREATE NEW PLAN")) {
+
+        } else if (e.getActionCommand().equals("LOAD PLAN")) {
+
+        }
+        }
+    }
+
