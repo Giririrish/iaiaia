@@ -32,14 +32,17 @@ public class GUI_Main_Menu extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("ADD REGISTER")) {
-            System.out.println("add reg men");
+            System.out.println("Add reg men");
             GUI_Add_Register newAddRegMenu = new GUI_Add_Register();
         } else if (e.getActionCommand().equals("EDIT REGISTER")) {
-
+            System.out.println("Edit reg men");
+            GUI_Edit_Register newEditRegMenu = new GUI_Edit_Register();
         } else if (e.getActionCommand().equals("CREATE NEW PLAN")) {
-
+            System.out.println("Create plan menu");
+            GUI_Create_Plan newCreatePlanMenu = new GUI_Create_Plan();
         } else if (e.getActionCommand().equals("LOAD PLAN")) {
-
+            System.out.println("Load Plan Menu");
+            GUI_Load_Plan newLoadPlanMenu = new GUI_Load_Plan();
         }
         }
     }

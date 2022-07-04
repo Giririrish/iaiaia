@@ -15,8 +15,10 @@ public class U_shape extends Classroom{
         }
         Pupil blank = new Pupil(" " , " " , true);
         //Todo put blank inbetween and fininsh the sorting algorithm
-        for(int i = 0 ; i < sideRowLength ; i++){
-
+        for( int x = 0 ; x < sideRowLength; x = x +2) {
+            for (int i = x; i < backRowLength - 1; i++) {
+                PlanLL.add(blank, i + 1 );//not done
+            }
         }
     }
 }

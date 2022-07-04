@@ -42,5 +42,13 @@ public class LinkedList {
         previous.setNext(pupil);
         pupil.setNext(current);
     }
-
+    public int Size(){
+        int sizeCounter = 0;
+        ListNode n = head;
+        while(n.getNext() != null){
+            sizeCounter++;
+            n = n.getNext();
+        }
+        return  sizeCounter;
+    }
 }

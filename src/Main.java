@@ -54,7 +54,14 @@ public class Main {
         System.out.println(testList.getHead().getNext().getValue().getFirstName());
         System.out.println("get annother next test ");
         System.out.println(testList.getHead().getNext().getNext().getValue().getFirstName());
-
+        System.out.println("Add inbetween test:");
+        Pupil blank = new Pupil("blonc","",true);
+        testList.add(blank , 2);
+        System.out.println(testList.getHead().getValue().getFirstName() +testList.getHead().getNext().getValue().getFirstName() +testList.getHead().getNext().getNext().getValue().getFirstName() +testList.getHead().getNext().getNext().getNext().getValue().getFirstName() );
+        System.out.println();
+        System.out.println("size test :");
+        System.out.println(textRegister.getSize());
+        System.out.println(testList.Size());
 
         System.out.println("Swing operations start");
         JFrame frame = new JFrame("test frame");
