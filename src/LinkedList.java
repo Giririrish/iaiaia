@@ -51,4 +51,14 @@ public class LinkedList {
         }
         return  sizeCounter;
     }
+    public void DisplayAll(){
+        ListNode current = head;
+        ListNode previous = null;
+        while (current != null) {
+            previous = current;
+            current = current.getNext();
+            previous.display();
+        }
+    }
+
 }

@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.sql.SQLOutput;
 
 public class Main {
 
@@ -62,8 +63,16 @@ public class Main {
         System.out.println("size test :");
         System.out.println(textRegister.getSize());
         System.out.println(testList.Size());
-
+        System.out.println("display all test");
+        testList.DisplayAll();
         System.out.println("Swing operations start");
+        System.out.println();
+        System.out.println();
+        System.out.println("U shape test");
+        Register ShapeReg = new Register("ushapereg.txt");
+        ShapeReg.addAllFilePupils();
+        U_shape ShapeU= new U_shape(3,3 , ShapeReg);
+        ShapeU.constructPlan();
         JFrame frame = new JFrame("test frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         GUI_Main_Menu main_menu = new GUI_Main_Menu();

@@ -14,7 +14,7 @@ public class U_shape extends Classroom{
             PlanLL.addItem(register1.getPupil(i));
         }
         Pupil blank = new Pupil(" " , " " , true);
-        //Todo put blank inbetween and fininsh the sorting algorithm
+        //Todo put blank in between and finish the sorting algorithm
         for( int x = 0 ; x <(sideRowLength * (backRowLength + 2)) - 1 ; x = x + (backRowLength + 2)){
             for (int i = x; i < x + (backRowLength -1); i++) {
                 PlanLL.add(blank, i + 1 );//not done
@@ -22,6 +22,22 @@ public class U_shape extends Classroom{
         }
         for (int p = (sideRowLength * (backRowLength + 2)) ; p <(sideRowLength * (backRowLength + 2)) + backRowLength-1 ; p++ ){
             PlanLL.add(blank, p + 1  );//not done
+        }
+        ListNode n = new ListNode(blank);
+        n.setNext(PlanLL.getHead());
+        PlanLL.DisplayAll();
+
+        //for(int y = 0 ; y < sideRowLength +1 ; y++){
+            //for (int x = 0 ; x < backRowLength +2 ; x++){
+                //grid[x][y] = n.getNext().getValue();
+           // }
+        //}
+    }
+    public void DisplayPlan(){
+        for(int y = 0 ; y < sideRowLength +1 ; y++){
+            for (int x = 0 ; x < backRowLength +2 ; x++){
+                System.out.println(grid[x][y].getFirstName());
+            }
         }
     }
 }
