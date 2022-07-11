@@ -10,9 +10,8 @@ public class U_shape extends Classroom{
     }
     public void constructPlan(){
         LinkedList PlanLL = new LinkedList(register1);
-        for(int i = 0 ; i < register1.getSize() ; i++){
-            PlanLL.addItem(register1.getPupil(i));
-        }
+        System.out.println("HERHEHRE");
+        PlanLL.DisplayAll();
         Pupil blank = new Pupil(" " , " " , true);
         //Todo put blank in between and finish the sorting algorithm
         for( int x = 0 ; x <(sideRowLength * (backRowLength + 2)) - 1 ; x = x + (backRowLength + 2)){
@@ -20,13 +19,14 @@ public class U_shape extends Classroom{
                 PlanLL.add(blank, i + 1 );//not done
             }
         }
+        System.out.println("here");
+        PlanLL.DisplayAll();
         for (int p = (sideRowLength * (backRowLength + 2)) ; p <(sideRowLength * (backRowLength + 2)) + backRowLength-1 ; p++ ){
-            PlanLL.add(blank, p + 1  );//not done
+            PlanLL.add(blank, p   );//not done
         }
+
         ListNode n = new ListNode(blank);
         n.setNext(PlanLL.getHead());
-        PlanLL.DisplayAll();
-
         //for(int y = 0 ; y < sideRowLength +1 ; y++){
             //for (int x = 0 ; x < backRowLength +2 ; x++){
                 //grid[x][y] = n.getNext().getValue();
