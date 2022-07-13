@@ -9,18 +9,22 @@ public class U_shape extends Classroom{
         grid = new Pupil[backRowLength + 2][sideRowLength + 1];
     }
     public void constructPlan(){
-        LinkedList PlanLL = new LinkedList(register1);
+        LinkedList PlanLL = new LinkedList(register1);//Linked list used to fill empty space in this shape
         System.out.println("HERHEHRE");
         PlanLL.DisplayAll();
         Pupil blank = new Pupil(" " , " " , true);
-        //Todo put blank in between and finish the sorting algorithm
+        //add to ll from top row down -- after reversing order of reg and adding to ll
+        for(int a = register1.getSize(); a > 0; a--) {
+
+        }
+
         for( int x = 0 ; x <(sideRowLength * (backRowLength + 2)) - 1 ; x = x + (backRowLength + 2)){
             for (int i = x; i < x + (backRowLength -1); i++) {
-                PlanLL.add(blank, i + 1 );//not done
+                PlanLL.add(blank, i + 1 );//adds in blanks in positions where there are no students sitting
             }
         }
         System.out.println("here");
-        PlanLL.DisplayAll();
+        PlanLL.DisplayAll();//the ends of the back row will be empty
         for (int p = (sideRowLength * (backRowLength + 2)) ; p <(sideRowLength * (backRowLength + 2)) + backRowLength-1 ; p++ ){
             PlanLL.add(blank, p   );//not done
         }
@@ -32,6 +36,7 @@ public class U_shape extends Classroom{
                 //grid[x][y] = n.getNext().getValue();
            // }
         //}
+        //Todo put blank in between and finish the sorting algorithm
     }
     public void DisplayPlan(){
         for(int y = 0 ; y < sideRowLength +1 ; y++){
