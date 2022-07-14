@@ -22,39 +22,23 @@ public class U_shape extends Classroom{
         PlanLL.DisplayAll();
         Pupil blank = new Pupil(" " , " " , true);
 
-        PlanLL.setHead(blank);
+        PlanLL.setHead(blank);//Back row done separately as it does not follow the pattern of the other rows.
         PlanLL.add(blank, backRowLength + 1);
-        System.out.println("back row test");
-        PlanLL.DisplayAll();
-        for (int s = backRowLength + 2 ; s < ((sideRowLength + 1)*(backRowLength +  2 ))-1; s = s + (backRowLength + 2 )){
+        for (int s = backRowLength + 2 ; s < ((sideRowLength + 1)*(backRowLength +  2 ))-1; s = s + (backRowLength + 2 )){//starts from row 2
             for (int b = s + 1; b < s +(backRowLength) + 1 ; b++ ){
-                PlanLL.add(blank , s+1 );
+                PlanLL.add(blank , s+1 );//dynamic ll is expanding so the index must stay constant
             }
             System.out.println(s);
         }
         System.out.println("full display hererererererere");
         PlanLL.DisplayAll();
         //add to ll from top row down -- after reversing order of reg and adding to ll
-        //maybe add recursive method to fill in 2D grid array
-        //for( int x = 0 ; x <(sideRowLength * (backRowLength + 2)) - 1 ; x = x + (backRowLength + 2)){
-           // for (int i = x; i < x + (backRowLength -1); i++) {
-          //      PlanLL.add(blank, i + 1 );//adds in blanks in positions where there are no students sitting
-        //    }
-        //}
-        //System.out.println("here");
-        // PlanLL.DisplayAll();//the ends of the back row will be empty
-      //  for (int p = (sideRowLength * (backRowLength + 2)) ; p <(sideRowLength * (backRowLength + 2)) + backRowLength-1 ; p++ ){
-      //      PlanLL.add(blank, p   );//not done
-      //  }
-
-        //ListNode n = new ListNode(blank);
-       // n.setNext(PlanLL.getHead());
-        //for(int y = 0 ; y < sideRowLength +1 ; y++){
-            //for (int x = 0 ; x < backRowLength +2 ; x++){
-                //grid[x][y] = n.getNext().getValue();
-           // }
-        //}
-        //Todo put blank in between and finish the sorting algorithm
+        //maybe add recursive method to fill in 2D arrat
+        //Todo fill in 2d grid array
+        for(int x ){
+            for(int y ){
+            }
+        }
     }
     public void DisplayPlan(){
         for(int y = 0 ; y < sideRowLength +1 ; y++){
