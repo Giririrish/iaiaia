@@ -15,7 +15,12 @@ public class LinkedList {
     public ListNode getHead() {
         return head;
     }
-
+    public void setHead(Pupil p){
+        ListNode h = new ListNode(p);
+        ListNode temp = head;
+        head = h;
+        h.setNext(temp);
+    }
     public void addItem(Pupil p){
         ListNode item = new ListNode(p);
         if (head == null) {

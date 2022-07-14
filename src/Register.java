@@ -49,6 +49,9 @@ public class Register {
         Pupil p = new Pupil(fn , ln , sex);
         Register.add(p);
     }
+    public void addPupil(Pupil p ){ //adds a new pupil to the arraylist register
+        Register.add(p);
+    }
     public Pupil getPupil(int index){
         return Register.get(index);
     }//gets a pupil

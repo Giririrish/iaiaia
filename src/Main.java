@@ -63,6 +63,9 @@ public class Main {
         System.out.println("size test :");
         System.out.println(textRegister.getSize());
         System.out.println(testList.Size());
+        System.out.println("set head test");
+        Pupil troll = new Pupil("lol" ,"lolol", true);
+        testList.setHead(troll);
         System.out.println("display all test");
         testList.DisplayAll();
 
