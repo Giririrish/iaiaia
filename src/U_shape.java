@@ -24,12 +24,18 @@ public class U_shape extends Classroom{
 
         PlanLL.setHead(blank);
         PlanLL.add(blank, backRowLength + 1);
-        for (int s = 0 ; s < sideRowLength ; r++){
-            for (int b =  )
+        System.out.println("back row test");
+        PlanLL.DisplayAll();
+        for (int s = backRowLength + 2 ; s < ((sideRowLength + 1)*(backRowLength +  2 ))-1; s = s + (backRowLength + 2 )){
+            for (int b = s + 1; b < s +(backRowLength) + 1 ; b++ ){
+                PlanLL.add(blank , s+1 );
+            }
+            System.out.println(s);
         }
-
+        System.out.println("full display hererererererere");
+        PlanLL.DisplayAll();
         //add to ll from top row down -- after reversing order of reg and adding to ll
-
+        //maybe add recursive method to fill in 2D grid array
         //for( int x = 0 ; x <(sideRowLength * (backRowLength + 2)) - 1 ; x = x + (backRowLength + 2)){
            // for (int i = x; i < x + (backRowLength -1); i++) {
           //      PlanLL.add(blank, i + 1 );//adds in blanks in positions where there are no students sitting

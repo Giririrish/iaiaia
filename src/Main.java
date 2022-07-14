@@ -73,6 +73,7 @@ public class Main {
         Register ShapeReg = new Register("ushapereg.txt");
         ShapeReg.addAllFilePupils();
         U_shape ShapeU= new U_shape(3,3, ShapeReg);
+        System.out.println("U shape construct ");
         ShapeU.constructPlan();
         System.out.println("Swing operations start");
         System.out.println();

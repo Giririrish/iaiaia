@@ -40,9 +40,13 @@ public class LinkedList {
         ListNode pupil = new ListNode(p);
         ListNode current = head;
         ListNode previous = null;
-        for(int i = 0 ; i < index ; i++){ //if the construct is offset put -1 here
-            previous = current;
-            current = current.getNext();
+        for(int i = 0 ; i < index; i++){ //if the construct is offset put -1 here
+            if (current != null) {
+                previous = current;
+                current = current.getNext();
+            }else {
+                i = index +1;
+            }
         }
         previous.setNext(pupil);
         pupil.setNext(current);
