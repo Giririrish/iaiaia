@@ -36,6 +36,16 @@ public class LinkedList {
             previous.setNext(item);
         }
     }
+    public Pupil getPupil(int index){
+        ListNode n = head;
+        for(int x = 1 ; x<index ;x++){
+            n = recursiveGetNext(n);
+        }
+        return n.getValue();
+    }
+    public ListNode recursiveGetNext(ListNode node){
+        return node.getNext();
+    }
     public void add(Pupil p , int index){
         ListNode pupil = new ListNode(p);
         ListNode current = head;

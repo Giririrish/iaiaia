@@ -35,9 +35,9 @@ public class U_shape extends Classroom{
         //add to ll from top row down -- after reversing order of reg and adding to ll
         //maybe add recursive method to fill in 2D arrat
         //Todo fill in 2d grid array
-        for(int x ){
-            for(int y ){
-            }
+        Register gridReg = new Register();
+        for(int a = PlanLL.Size()   ; a > 0 ; a--) {
+            gridReg.addPupil(PlanLL.getPupil(a));//finsih heer e
         }
     }
     public void DisplayPlan(){
