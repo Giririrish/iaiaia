@@ -18,33 +18,37 @@ public class U_shape extends Classroom{
         }
 
         LinkedList PlanLL = new LinkedList(PlanReg);//Linked list used to fill empty space in this shape
-        System.out.println("HERHEHRE");
         PlanLL.DisplayAll();
         Pupil blank = new Pupil(" " , " " , true);
-
         PlanLL.setHead(blank);//Back row done separately as it does not follow the pattern of the other rows.
         PlanLL.add(blank, backRowLength + 1);
         for (int s = backRowLength + 2 ; s < ((sideRowLength + 1)*(backRowLength +  2 ))-1; s = s + (backRowLength + 2 )){//starts from row 2
             for (int b = s + 1; b < s +(backRowLength) + 1 ; b++ ){
                 PlanLL.add(blank , s+1 );//dynamic ll is expanding so the index must stay constant
             }
-            System.out.println(s);
         }
-        System.out.println("full display hererererererere");
-        PlanLL.DisplayAll();
-        //add to ll from top row down -- after reversing order of reg and adding to ll
-        //maybe add recursive method to fill in 2D arrat
-        //Todo fill in 2d grid array
         Register gridReg = new Register();
-        for(int a = PlanLL.Size()   ; a > 0 ; a--) {
-            gridReg.addPupil(PlanLL.getPupil(a));//finsih heer e
+        for(int a = PlanLL.Size()+1   ; a > 0 ; a--) {
+            gridReg.addPupil(PlanLL.getPupil(a));
+        }
+        gridReg.displayRegisterInitials();
+        System.out.println(gridReg.getSize());
+        int counter1D = 0;
+        for (int x = 0 ; x < (sideRowLength+1) ; x++){
+            for (int y = 0; y < (backRowLength +2) ; y++) {
+                grid[y][x] = gridReg.getPupil(counter1D);
+                counter1D++;
+            }
         }
     }
     public void DisplayPlan(){
-        for(int y = 0 ; y < sideRowLength +1 ; y++){
-            for (int x = 0 ; x < backRowLength +2 ; x++){
-                System.out.println(grid[x][y].getFirstName());
+        System.out.println();
+        System.out.println("TEACHER DESK");
+        for(int x = 0 ; x < sideRowLength + 1 ; x ++){
+            for(int y = 0 ; y < backRowLength + 2 ; y++){
+                System.out.print(" " +grid[y][x].getInitials() + " ");
             }
+            System.out.println();
         }
     }
 }

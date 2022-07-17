@@ -7,3 +7,5 @@ Wax,Warko,g
 Eax,Earko,g
 Rax,Rarko,g
 Tax,Tarko,g
+Bow,Chika,g
+Chika,Bow,g
