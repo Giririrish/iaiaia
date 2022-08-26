@@ -12,6 +12,7 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
     JButton FileEnter;
     JTextField ManualEntry;
     JTextField FileName;
+    JLabel EntryCounter;
     //text field for .txt file , text field to enter a pupil
     public GUI_Add_Register(){
         frame = new JFrame("Add Register Menu");
@@ -20,10 +21,12 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
         setLayout(null);
         ManualEnter = new JButton("Manual Enter");
         ManualEnter.setBounds(10,10,150,50);
+        ManualEnter.addActionListener(this);
         FileEnter = new JButton("File Enter");
         FileEnter.setBounds(10,80,150,50);
-        add(ManualEnter);
-        add(FileEnter);
+        FileEnter.addActionListener(this);
+        frame.add(ManualEnter);
+        frame.add(FileEnter);
         frame.setResizable(true);
         frame.setSize(800,400);
         frame.getContentPane().add(this);
@@ -31,11 +34,20 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
     }
 
 
-
-    public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Manual Enter")) {
+    @Override
+    public void actionPerformed(ActionEvent e){
+        if(e.getActionCommand().equals("Manual Enter")){
             System.out.println("MANUAL ENTER");
-
+            ManualEntry = new JTextField();
+            ManualEntry.setBounds(170, 10, 150 , 50);
+            frame.add(ManualEntry);
+            frame.repaint();
+        } else if(e.getActionCommand().equals("File Enter")) {
+            System.out.println("FILE ENTER");
+            FileName = new JTextField();
+            FileName.setBounds(170, 80, 150 , 50);
+            frame.add(FileName);
+            frame.repaint();
         }
     }
 
