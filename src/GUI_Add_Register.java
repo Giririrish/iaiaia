@@ -13,9 +13,12 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
     JTextField ManualEntry;
     JTextField FileName;
     JButton Entry;
-    JLabel PupilIndex;
     JLabel enterDetails;
     JLabel enterFileName;
+    JButton FileEntryButton;
+    JButton ManualFileEntryButton;
+    public Register ManualEntryReg;
+    public Register FileEntryReg;
     //text field for .txt file , text field to enter a pupil
     public GUI_Add_Register(){
         frame = new JFrame("Add Register Menu");
@@ -35,11 +38,17 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
         ManualEntry.setBounds(170, 40, 150 , 50);
         ManualEntry.setVisible(false);
 
-        Entry = new JButton("Add");
-        Entry.setBounds(330, 40, 70, 50);
+        Entry = new JButton("Add Pupil");
+        Entry.setBounds(330, 40, 150, 50);
+        Entry.addActionListener(this);
         Entry.setVisible(false);
 
-        enterDetails = new JLabel("Enter Pupil Details:");
+        ManualFileEntryButton = new JButton("Add Register Name");
+        ManualFileEntryButton.setBounds(490, 40, 150, 50);
+        ManualFileEntryButton.addActionListener(this);
+        ManualFileEntryButton.setVisible(false);
+
+        enterDetails = new JLabel("Enter Register Name");
         enterDetails.setBounds(170 ,10 , 150 , 30);
         enterDetails.setVisible(false);
 
@@ -47,12 +56,24 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
         FileName.setBounds(170, 130, 150, 50);
         FileName.setVisible(false);
 
+        enterFileName = new JLabel("Enter File Name");
+        enterFileName.setBounds(170 , 100, 150, 30 );
+        enterFileName.setVisible(false);
+
+        FileEntryButton = new JButton("Add File Name");
+        FileEntryButton.setBounds(330 , 130,150, 50);
+        FileEntryButton.addActionListener(this);
+        FileEntryButton.setVisible(false);
+
         frame.add(FileName);
         frame.add(ManualEntry);
         frame.add(enterDetails);
         frame.add(Entry);
         frame.add(ManualEnter);
         frame.add(FileEnter);
+        frame.add(FileEntryButton);
+        frame.add(ManualFileEntryButton);
+        frame.add(enterFileName);
         frame.setResizable(true);
         frame.setSize(800,400);
         frame.getContentPane().add(this);
@@ -65,49 +86,83 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
         if(e.getActionCommand().equals("Manual Enter")){
             System.out.println("MANUAL ENTER");
             FileName.setVisible(false);
+            FileEntryButton.setVisible(false);
+            enterFileName.setVisible(false);
 
             ManualEntry.setVisible(true);
             Entry.setVisible(true);
             enterDetails.setVisible(true);
+            ManualFileEntryButton.setVisible(true);
 
             frame.repaint();
-            Register newReg = new Register();
-            if(e.getActionCommand().equals("Add")){
-                String PupilDetails = ManualEntry.getText();
-                boolean tempSex = false;
-                String[] tempArray = PupilDetails.split(",",-2); //when formatted correctly the text file should have a new pupil on a new line and pupil details comma separated
-                if(tempArray[2].equals("b")){ //reads boy and girl ( b / g ) as a boolean value for the pupil class
-                    tempSex = false;
-                }else if (tempArray[2].equals("g")){
-                    tempSex = true;
-                }
-                newReg.addPupil(tempArray[0],tempArray[1],tempSex);
-                ManualEntry.setText("");
-            }
+
         } else if(e.getActionCommand().equals("File Enter")) {
             System.out.println("FILE ENTER");
             ManualEntry.setVisible(false);
             Entry.setVisible(false);
             enterDetails.setVisible(false);
+            ManualFileEntryButton.setVisible(false);
 
             FileName.setVisible(true);
-
+            FileEntryButton.setVisible(true);
+            enterFileName.setVisible(true);
             frame.repaint();
+
+        }
+        else if(e.getActionCommand().equals("Add Pupil")){
+            System.out.println("ADD PUPIL");
+            Pupil tempPupil;
+            tempPupil = pupilConcat();
+            ManualEntryReg.addPupil(tempPupil);
+            ManualEntry.setText("");
+            ManualEntryReg.displayRegisterInitials();
+        }
+        else if(e.getActionCommand().equals("Add Register Name")){
+            System.out.println("ENTER REGISTER NAME");
+            String manualEntryValue = ManualEntry.getText();
+            System.out.println(manualEntryValue);
+            ManualEntryReg = new Register(manualEntryValue);
+            ManualEntry.setText("");
+        }
+        else if(e.getActionCommand().equals("Add File Name")){
+            System.out.println("ADD FILE NAME");
+            String fileEntryValue = FileName.getText();
+            FileEntryReg = new Register(fileEntryValue);
+            FileEntryReg.addAllFilePupils();
+            FileName.setText("");
+            FileEntryReg.displayRegisterInitials();
         }
     }
 
     @Override
     public void insertUpdate(DocumentEvent e) {
-
+        System.out.println("insert");
     }
 
     @Override
     public void removeUpdate(DocumentEvent e) {
-
+        System.out.println("remove");
     }
 
     @Override
     public void changedUpdate(DocumentEvent e) {
+        System.out.println("changed");
+    }
+    public Pupil pupilConcat(){
+            Pupil tempPupil;
+            String PupilDetails = ManualEntry.getText();
+            boolean tempSex = false;
+            String[] tempArray = PupilDetails.split(",",-2); //when formatted correctly the text file should have a new pupil on a new line and pupil details comma separated
+            if(tempArray[2].equals("b")){ //reads boy and girl ( b / g ) as a boolean value for the pupil class
+                tempSex = false;
+            }else if (tempArray[2].equals("g")){
+                tempSex = true;
+            }
+            tempPupil = new Pupil(tempArray[0],tempArray[1],tempSex);
+
+            return tempPupil;
+        }
+    public void fileNameAdded(){
 
     }
 }
