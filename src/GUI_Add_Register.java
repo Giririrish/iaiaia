@@ -17,8 +17,8 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
     JLabel enterFileName;
     JButton FileEntryButton;
     JButton ManualFileEntryButton;
-    public Register ManualEntryReg;
-    public Register FileEntryReg;
+    public static Register ManualEntryReg;
+    public static Register FileEntryReg;
     //text field for .txt file , text field to enter a pupil
     public GUI_Add_Register(){
         frame = new JFrame("Add Register Menu");
@@ -48,7 +48,7 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
         ManualFileEntryButton.addActionListener(this);
         ManualFileEntryButton.setVisible(false);
 
-        enterDetails = new JLabel("Enter Register Name");
+        enterDetails = new JLabel("Reg Name/Pupil Details");
         enterDetails.setBounds(170 ,10 , 150 , 30);
         enterDetails.setVisible(false);
 
@@ -75,7 +75,7 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
         frame.add(ManualFileEntryButton);
         frame.add(enterFileName);
         frame.setResizable(true);
-        frame.setSize(800,400);
+        frame.setSize(800,600);
         frame.getContentPane().add(this);
         frame.setVisible(true);
     }
