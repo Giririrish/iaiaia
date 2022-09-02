@@ -136,7 +136,7 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
 
     @Override
     public void insertUpdate(DocumentEvent e) {
-        System.out.println("insert");
+
     }
 
     @Override
