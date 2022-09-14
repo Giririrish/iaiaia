@@ -72,7 +72,7 @@ public class Main {
         System.out.println("U shape test");
         Register ShapeReg = new Register("ushapereg.txt");
         ShapeReg.addAllFilePupils();
-        U_shape ShapeU= new U_shape(4,3, ShapeReg);
+        U_shape ShapeU= new U_shape(3,4, ShapeReg);
         System.out.println("U shape construct ");
         ShapeU.constructPlan();
         ShapeU.DisplayPlan();

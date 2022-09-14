@@ -87,7 +87,7 @@ public class GUI_Edit_Register extends JPanel implements ActionListener, Documen
         frame.getContentPane().add(this);
         frame.setVisible(true);
 
-    }
+}
 
 
     @Override
