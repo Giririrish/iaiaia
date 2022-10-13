@@ -1,3 +1,4 @@
+import java.lang.module.ModuleDescriptor;
 import java.util.ArrayList;
 
 public class Classroom { //this class is used as a basic setting selection before selecting what shape is to be used
@@ -8,54 +9,39 @@ public class Classroom { //this class is used as a basic setting selection befor
     public Classroom(Register register){
         register1 = register;
     }
-    public void setBoyGirl(boolean setting) {//search and sort
-        boyGirl = setting;
-        boolean SexSwitcher = false;
-        int pointOfSwitch = 0;
-        int pointOfSwitchFemale = 0;
-        ArrayList<Pupil> tempArrayList = new ArrayList<>();
-        for(int i = 0 ; i < 2; i++) {//will fill the temp list with all boys first then all girls at the pointOfSwitch index
-            for (int x = 0; x < register1.getSize(); x++) {
-                if (register1.getPupil(x).getSex() == SexSwitcher) {
-                    tempArrayList.add(register1.getPupil(x));
-                    if (!SexSwitcher) {
-                        pointOfSwitch++;
-                    }
-                }
+    public void setBoyGirl() {//search and sort
+        Register boys = new Register();
+        Register girls = new Register();
+        for(int x = 0 ; x < register1.getSize() ; x++){
+            if(!register1.getPupil(x).getSex()){
+                boys.addPupil(register1.getPupil(x));
+            }else {
+                girls.addPupil(register1.getPupil(x));
             }
-            SexSwitcher = true;
         }
-        System.out.println();
-        System.out.println("sorted here");
-        for(int x = 0 ; x < tempArrayList.size() ; x++){
-            System.out.println(tempArrayList.get(x).getFirstName());
+        LinkedList boyLL = new LinkedList(boys);
+        LinkedList girlLL = new LinkedList(girls);
+        boolean BGBSwitch = false;
+        register1.clear();
+        while(boyLL.getHead() != null && girlLL.getHead() != null ){
+            if(!BGBSwitch){
+                register1.addPupil(boyLL.getHead().getValue());
+                boyLL.removeHead();
+                BGBSwitch = true;
+            }else if(BGBSwitch){
+                register1.addPupil(girlLL.getHead().getValue());
+                girlLL.removeHead();
+                BGBSwitch = false;
+            }
         }
-        SexSwitcher = false;
-        pointOfSwitchFemale = register1.getSize() - pointOfSwitch;
-        System.out.println("point of switch male " + pointOfSwitch);
-        System.out.println("point of switch female " + pointOfSwitchFemale);
-        //TODO sort from temp array list to main register
-        if(pointOfSwitch * 2 > register1.getSize()){
-
-        }else if (pointOfSwitch * 2 < register1.getSize()){
-
-        }else if(pointOfSwitch * 2 == register1.getSize()){
-            for(int x =0 ; x < register1.getSize() - 1   ; x = x + 2){
-
-            }
-
-
-
-            for(int x =0 ; x < register1.getSize() - 1   ; x = x + 2){
-                register1.setPupil(x, tempArrayList.get(x / 2));
-            }
-            for(int x = 1  ; x < pointOfSwitch  ;x++){
-                register1.setPupil((x * 2) - 1   , tempArrayList.get((x -1) + pointOfSwitch));
-            }
-            register1.setPupil(register1.getSize() -1 ,tempArrayList.get(pointOfSwitch-1));
+        while(boyLL.getHead() != null){
+            register1.addPupil(boyLL.getHead().getValue());
+            boyLL.removeHead();
         }
-
-
+        while(girlLL.getHead() != null){
+            register1.addPupil(girlLL.getHead().getValue());
+            girlLL.removeHead();
+        }
         System.out.println();
         System.out.println("displayed here");
         for (int x = 0 ; x < register1.getSize() ; x++){

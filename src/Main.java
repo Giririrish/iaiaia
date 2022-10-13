@@ -76,6 +76,13 @@ public class Main {
         System.out.println("U shape construct ");
         ShapeU.constructPlan();
         ShapeU.DisplayPlan();
+
+        System.out.println("bgbgb test ");
+        Register BGB = new Register("BGBTest.txt");
+        BGB.addAllFilePupils();
+        Classroom bgbTest = new Classroom(BGB);
+        bgbTest.setBoyGirl();
+
         System.out.println("Swing operations start");
         System.out.println();
         System.out.println();

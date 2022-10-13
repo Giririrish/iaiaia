@@ -21,6 +21,11 @@ public class LinkedList {
         head = h;
         h.setNext(temp);
     }
+    public void removeHead(){
+        if(head != null){
+            head = head.getNext();
+        }
+    }
     public void addItem(Pupil p){
         ListNode item = new ListNode(p);
         if (head == null) {

@@ -77,6 +77,7 @@ public class Register {
             }
         }
     }
+    public void clear(){Register.clear();}
     public void displayRegister(){
         for( int x = 0 ; x < Register.size(); x++){
             System.out.println(Register.get(x).getFirstName() +" "+ Register.get(x).getLastName());
