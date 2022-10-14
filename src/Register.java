@@ -27,6 +27,7 @@ public class Register {
             addPupil(tempArray[0],tempArray[1],tempSex);
             indexCounter++;
         }
+
     }
     public void SaveRegister(String saveFileName){
         String tempSex = "";
