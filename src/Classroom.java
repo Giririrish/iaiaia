@@ -71,7 +71,21 @@ public class Classroom { //this class is used as a basic setting selection befor
         registerOrder = setting;
        // register1.displayRegister();
     }
-
+    public void flagSort(int index){
+        Register tempReg = new Register();
+        tempReg.addPupil(register1.getPupil(index));
+        for(int x = 0 ; x < index ; x++){
+            tempReg.addPupil(register1.getPupil(x));
+        }
+        for (int i = index +1 ; i <register1.getSize() ; i++){
+            tempReg.addPupil(register1.getPupil(i));
+        } //remove+1 if it dont work properly
+        register1.clear();
+        register1 = tempReg;
+        for(int x = 0 ; x < register1.getSize() ; x++){
+            System.out.println(register1.getPupilInitials(x));
+        }
+    }
     public void setNumberOfSeats(int NofSeats){
         numberOfSeats = NofSeats;
     }
