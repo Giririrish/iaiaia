@@ -82,6 +82,11 @@ public class Main {
         BGB.addAllFilePupils();
         Classroom bgbTest = new Classroom(BGB);
         bgbTest.setBoyGirl();
+        System.out.println();
+        System.out.println("flag tset");
+        bgbTest.flagSort(2);
+
+
 
         System.out.println("Swing operations start");
         System.out.println();

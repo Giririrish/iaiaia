@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class GUI_Create_Plan extends JPanel implements ActionListener {
     private JFrame frame;
-    JRadioButton ManualRegButton;
-    JRadioButton FileRegButton;
+    JButton ManualRegButton;
+    JButton FileRegButton;
     JTextArea MiniDisplay;
     JLabel selectReg;
     JLabel selectSort;
@@ -27,14 +27,14 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
         MiniDisplay.setEditable(false);
 
         if(GUI_Add_Register.ManualEntryReg != null) {
-            ManualRegButton = new JRadioButton("Manually Input Reg");
+            ManualRegButton = new JButton("Manually Reg");
             ManualRegButton.setBounds(10, 40, 150, 20);
             ManualRegButton.addActionListener(this);
             frame.add(ManualRegButton);
 
         }
         if (GUI_Add_Register.FileEntryReg != null) {
-            FileRegButton = new JRadioButton("File Loaded Reg");
+            FileRegButton = new JButton("File Reg");
             FileRegButton.setBounds(170, 40, 150, 20);
             FileRegButton.addActionListener(this);
             frame.add(FileRegButton);
@@ -42,22 +42,24 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
         //TODO Add Jlabels in between
         RowCheck = new JRadioButton("Row Shape");
         RowCheck.setBounds(10,120,150,20);
-        RowCheck.setVisible(false);
+        RowCheck.setVisible(true);
 
         UCheck = new JRadioButton("Row Shape");
         UCheck.setBounds(170,120,150,20);
-        UCheck.setVisible(false);
+        UCheck.setVisible(true);
 
         RegisterOrderCheck = new JRadioButton("Register Order");
         RegisterOrderCheck.setBounds(10,200,150,20);
-        RegisterOrderCheck.setVisible(false);
+        RegisterOrderCheck.setVisible(true);
 
         BoyGirlBoyCheck = new JRadioButton("Boy-Girl-Boy");
         BoyGirlBoyCheck.setBounds(170,200,150,20);
-        BoyGirlBoyCheck.setVisible(false);
+        BoyGirlBoyCheck.setVisible(true);
 
-
+        frame.add(RowCheck);
+        frame.add(UCheck);
         frame.add(RegisterOrderCheck);
+        frame.add(BoyGirlBoyCheck);
         frame.add(MiniDisplay);
         frame.setResizable(true);
         frame.setSize(800,600);
@@ -67,9 +69,11 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Manually Input Reg")) {
             currentReg = 1;
+            UpdateView();
         }
         else if (e.getActionCommand().equals("File Loaded Reg")) {
             currentReg = 2;
+            UpdateView();
         }
     }
     public void UpdateView(){
