@@ -44,7 +44,7 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
         RowCheck.setBounds(10,120,150,20);
         RowCheck.setVisible(true);
 
-        UCheck = new JRadioButton("Row Shape");
+        UCheck = new JRadioButton("'U' Shape");
         UCheck.setBounds(170,120,150,20);
         UCheck.setVisible(true);
 
@@ -67,11 +67,11 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
         frame.setVisible(true);
     }
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Manually Input Reg")) {
+        if (e.getActionCommand().equals("Manually Reg")) {
             currentReg = 1;
             UpdateView();
         }
-        else if (e.getActionCommand().equals("File Loaded Reg")) {
+        else if (e.getActionCommand().equals("File Reg")) {
             currentReg = 2;
             UpdateView();
         }
