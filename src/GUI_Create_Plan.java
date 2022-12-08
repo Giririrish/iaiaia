@@ -42,20 +42,26 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
         //TODO Add Jlabels in between
         RowCheck = new JRadioButton("Row Shape");
         RowCheck.setBounds(10,120,150,20);
-        RowCheck.setVisible(true);
+        RowCheck.setVisible(false);
 
         UCheck = new JRadioButton("'U' Shape");
         UCheck.setBounds(170,120,150,20);
-        UCheck.setVisible(true);
+        UCheck.setVisible(false);
 
         RegisterOrderCheck = new JRadioButton("Register Order");
         RegisterOrderCheck.setBounds(10,200,150,20);
-        RegisterOrderCheck.setVisible(true);
+        RegisterOrderCheck.setVisible(false);
 
         BoyGirlBoyCheck = new JRadioButton("Boy-Girl-Boy");
         BoyGirlBoyCheck.setBounds(170,200,150,20);
-        BoyGirlBoyCheck.setVisible(true);
+        BoyGirlBoyCheck.setVisible(false);
 
+        SaveSettings = new JButton("Create");
+        SaveSettings.setBounds(10, 280, 120,70);
+        SaveSettings.addActionListener(this);
+        SaveSettings.setVisible(false);
+
+        frame.add(SaveSettings);
         frame.add(RowCheck);
         frame.add(UCheck);
         frame.add(RegisterOrderCheck);
@@ -70,10 +76,16 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
         if (e.getActionCommand().equals("Manually Reg")) {
             currentReg = 1;
             UpdateView();
+            setButtonsVisible(true);
+            ManualRegButton.setVisible(false);
+            FileRegButton.setVisible(true);
         }
         else if (e.getActionCommand().equals("File Reg")) {
             currentReg = 2;
             UpdateView();
+            setButtonsVisible(true);
+            FileRegButton.setVisible(false);
+            ManualRegButton.setVisible(true);
         }
     }
     public void UpdateView(){
@@ -110,5 +122,13 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
             }
             MiniDisplay.repaint();
         }
+    }
+
+    public void setButtonsVisible(boolean para){
+        RowCheck.setVisible(para);
+        UCheck.setVisible(para);
+        RegisterOrderCheck.setVisible(para);
+        BoyGirlBoyCheck.setVisible(para);
+        SaveSettings.setVisible(para);
     }
 }
