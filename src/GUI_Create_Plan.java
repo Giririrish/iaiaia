@@ -7,13 +7,11 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
     JButton ManualRegButton;
     JButton FileRegButton;
     JTextArea MiniDisplay;
+    JComboBox ShapeSelect;
+    JComboBox SortSelect;
     JLabel selectReg;
     JLabel selectSort;
     JLabel selectShape;
-    JRadioButton RegisterOrderCheck;
-    JRadioButton BoyGirlBoyCheck;
-    JRadioButton RowCheck;
-    JRadioButton UCheck;
     JButton SaveSettings;
     int currentReg = 0;
     public GUI_Create_Plan(){
@@ -40,32 +38,27 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
             frame.add(FileRegButton);
         }
         //TODO Add Jlabels in between
-        RowCheck = new JRadioButton("Row Shape");
-        RowCheck.setBounds(10,120,150,20);
-        RowCheck.setVisible(false);
+        String[] ShapeItems = { "Rows", "U Shape"};
+        ShapeSelect = new JComboBox(ShapeItems);
+        ShapeSelect.setBounds(10,120,150,20);
+        ShapeSelect.addActionListener(this);
+        ShapeSelect.setVisible(false);
 
-        UCheck = new JRadioButton("'U' Shape");
-        UCheck.setBounds(170,120,150,20);
-        UCheck.setVisible(false);
+        String[] SortItems = { "Unchanged", "Register Order", "Boy-Girl-Boy Order"};
+        SortSelect = new JComboBox(SortItems);
+        SortSelect.setBounds(10,200,150,20);
+        SortSelect.addActionListener(this);
+        SortSelect.setVisible(false);
 
-        RegisterOrderCheck = new JRadioButton("Register Order");
-        RegisterOrderCheck.setBounds(10,200,150,20);
-        RegisterOrderCheck.setVisible(false);
-
-        BoyGirlBoyCheck = new JRadioButton("Boy-Girl-Boy");
-        BoyGirlBoyCheck.setBounds(170,200,150,20);
-        BoyGirlBoyCheck.setVisible(false);
 
         SaveSettings = new JButton("Create");
         SaveSettings.setBounds(10, 280, 120,70);
         SaveSettings.addActionListener(this);
         SaveSettings.setVisible(false);
 
+        frame.add(SortSelect);
+        frame.add(ShapeSelect);
         frame.add(SaveSettings);
-        frame.add(RowCheck);
-        frame.add(UCheck);
-        frame.add(RegisterOrderCheck);
-        frame.add(BoyGirlBoyCheck);
         frame.add(MiniDisplay);
         frame.setResizable(true);
         frame.setSize(800,600);
@@ -86,6 +79,10 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
             setButtonsVisible(true);
             FileRegButton.setVisible(false);
             ManualRegButton.setVisible(true);
+        }else if(e.getActionCommand().equals("Create")){
+            if(ShapeSelect.getSelectedIndex() == 0){
+                Row_shape newRow()
+            }
         }
     }
     public void UpdateView(){
@@ -125,10 +122,8 @@ public class GUI_Create_Plan extends JPanel implements ActionListener {
     }
 
     public void setButtonsVisible(boolean para){
-        RowCheck.setVisible(para);
-        UCheck.setVisible(para);
-        RegisterOrderCheck.setVisible(para);
-        BoyGirlBoyCheck.setVisible(para);
+        ShapeSelect.setVisible(para);
+        SortSelect.setVisible(para);
         SaveSettings.setVisible(para);
     }
 }
