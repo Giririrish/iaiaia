@@ -64,4 +64,6 @@ public class Row_shape extends Classroom {// a row shaped classroom can be repre
             System.out.println();
         }
     }
+    public int getXdimension(){return rowLength;}
+    public int getYdimension(){return rowWidth;}
 }

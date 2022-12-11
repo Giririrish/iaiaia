@@ -51,4 +51,6 @@ public class U_shape extends Classroom{
             System.out.println();
         }
     }
+    public int getXdimension(){return backRowLength + 2;}
+    public int getYdimension(){return sideRowLength + 1;}
 }

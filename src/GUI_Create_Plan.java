@@ -19,10 +19,10 @@ public class GUI_Create_Plan extends JPanel implements ActionListener, DocumentL
     int currentReg = 0;
     int rowPlanCount = 0;
     int UPlanCount = 0;
-    String[] rowPlanNames = new String[4];
-    String[] UPlanNames = new String[4];
-    Row_shape[] rowPlanArrays = new Row_shape[4];
-    U_shape[] UPlanArrays = new U_shape[4];
+    public static String[] rowPlanNames = new String[4];
+    public static String[] UPlanNames = new String[4];
+    public static Row_shape[] rowPlanArrays = new Row_shape[4];
+    public static U_shape[] UPlanArrays = new U_shape[4];
     public GUI_Create_Plan(){
         frame = new JFrame("Create Plan Menu");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
