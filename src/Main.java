@@ -73,10 +73,6 @@ public class Main {
         Register ShapeReg = new Register("ushapereg.txt");
         ShapeReg.addAllFilePupils();
         U_shape ShapeU= new U_shape(3,4, ShapeReg);
-        System.out.println("U shape construct ");
-        ShapeU.constructPlan();
-        ShapeU.DisplayPlan();
-
         System.out.println("bgbgb test ");
         Register BGB = new Register("BGBTest.txt");
         BGB.addAllFilePupils();
