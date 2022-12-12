@@ -16,6 +16,13 @@ public class Row_shape extends Classroom {// a row shaped classroom can be repre
                 counter1D++;
             }
         }
+        for(int x = 0 ; x < rowWidth ; x ++){
+            for(int y = 0 ; y < rowLength ; y++){
+                if (grid[x][y] == null){
+                    grid[x][y] = new Pupil("","",true);
+                }
+            }
+        }
     }
     public int findPosOfInitials(String initials , boolean xory){ //x = true , y = false
         int xVal;
