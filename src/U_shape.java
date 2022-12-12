@@ -53,4 +53,41 @@ public class U_shape extends Classroom{
     }
     public int getXdimension(){return backRowLength + 2;}
     public int getYdimension(){return sideRowLength + 1;}
+
+    public int findPosOfInitials(String initials , boolean xory){ //x = true , y = false
+        int xVal;
+        int yVal;
+        if(xory == true){
+            for(int x = 0 ; x < sideRowLength + 1 ; x ++){
+                for(int y = 0 ; y < backRowLength + 2 ; y++){
+                    if(grid[x][y].getInitials().equals(initials)){
+                        xVal = x;
+                        return xVal;
+                    }
+                }
+            }
+        } else if (xory == false){
+            for(int x = 0 ; x < sideRowLength + 1 ; x ++){
+                for(int y = 0 ; y < backRowLength + 2 ; y++){
+                    if(grid[x][y].getInitials().equals(initials)){
+                        yVal = y;
+                        return yVal;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+    public void swapStudentUsingCoordinates( int xVal , int yVal ,int xVal2 , int yVal2 ){
+        Pupil tempPupil = new Pupil(grid[xVal][yVal].getFirstName(),grid[xVal][yVal].getLastName() ,grid[xVal][yVal].getSex());
+        grid[xVal][yVal] = grid[xVal2][yVal2];
+        grid[xVal2][yVal2] = tempPupil;
+    }
+    public void swapStudentsUsingInitials(String initials1 , String initials2 ){
+        int xVal = findPosOfInitials(initials1 , true);
+        int yVal = findPosOfInitials(initials1 , false);
+        int xVal2 = findPosOfInitials(initials2 , true);
+        int yVal2 = findPosOfInitials(initials2 , false);
+        swapStudentUsingCoordinates(xVal , yVal , xVal2 , yVal2);
+    }
 }

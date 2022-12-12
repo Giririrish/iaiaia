@@ -1,9 +1,11 @@
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GUI_Load_Plan extends JPanel implements ActionListener {
+public class GUI_Load_Plan extends JPanel implements ActionListener, DocumentListener {
     private JFrame frame;
     JComboBox PlanNameList;
     JLabel PlanNames;
@@ -50,7 +52,7 @@ public class GUI_Load_Plan extends JPanel implements ActionListener {
         swap1.setBounds(200, 20,200,20);
         swap1.setVisible(true);
 
-        ToBeSwapped1 = new JTextField("Student Index or Initials");
+        ToBeSwapped1 = new JTextField("First Student Initials");
         ToBeSwapped1.setBounds(200,50, 200,20);
         ToBeSwapped1.setVisible(true);
 
@@ -58,7 +60,7 @@ public class GUI_Load_Plan extends JPanel implements ActionListener {
         swap2.setBounds(200, 80, 200, 20);
         swap2.setVisible(true);
 
-        ToBeSwapped2 = new JTextField("Student Index or Initials");
+        ToBeSwapped2 = new JTextField("Second Student Initials");
         ToBeSwapped2.setBounds(200,110, 200,20);
         ToBeSwapped2.setVisible(true);
 
@@ -69,14 +71,14 @@ public class GUI_Load_Plan extends JPanel implements ActionListener {
 
         swapChoice = new JLabel("Swap Using : ");
         swapChoice.setBounds(200,140,200,20);
-        swapChoice.setVisible(true);
+        swapChoice.setVisible(false);
 
         UpdateIndex = new JButton("Index");
         UpdateIndex.setBounds(200,160, 95, 50);
         UpdateIndex.addActionListener(this);
-        UpdateIndex.setVisible(true);
+        UpdateIndex.setVisible(false);
 
-        UpdateInitials = new JButton("Initials");
+        UpdateInitials = new JButton("Update");
         UpdateInitials.setBounds(305,160, 95, 50);
         UpdateInitials.addActionListener(this);
         UpdateInitials.setVisible(true);
@@ -100,6 +102,34 @@ public class GUI_Load_Plan extends JPanel implements ActionListener {
 
 
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("Display")){
+
+        }else if(e.getActionCommand().equals("Update")){
+            String firstInit = ToBeSwapped1.getText();
+            String secondInit = ToBeSwapped2.getText();
+            int takenIndex;
+            if(PlanNameList.getSelectedIndex() > 4){
+                takenIndex = PlanNameList.getSelectedIndex() - 5;
+                GUI_Create_Plan.UPlanArrays[takenIndex].swapStudentsUsingInitials(firstInit,secondInit);
+            }else{
+                takenIndex = PlanNameList.getSelectedIndex();
+                GUI_Create_Plan.rowPlanArrays[takenIndex].swapStudentsUsingInitials(firstInit,secondInit);
+            }
+        }
+    }
+
+    @Override
+    public void insertUpdate(DocumentEvent e) {
+
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent e) {
+
+    }
+
+    @Override
+    public void changedUpdate(DocumentEvent e) {
 
     }
 }
