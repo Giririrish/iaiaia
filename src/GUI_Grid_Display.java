@@ -17,22 +17,24 @@ public class GUI_Grid_Display extends JPanel {
         frame.setSize(800,600);
 
 
-        frame.setLayout(new GridLayout(rowToDisplay.getXdimension(),rowToDisplay.getYdimension(),0,0));
+        frame.setLayout(new GridLayout(0,rowToDisplay.getYdimension(),0,0));
 
         buttons = new JButton[rowToDisplay.getXdimension()][rowToDisplay.getYdimension()];
 
+        displayButtons = new JButton[rowToDisplay.getXdimension() * rowToDisplay.getYdimension()];
         String tempText;
+        int counter1D = 0;
         for (int x = 0; x < rowToDisplay.getXdimension(); x++) {
                 for (int y = 0 ; y < rowToDisplay.getYdimension() ; y++) {
                     tempText = rowToDisplay.grid[x][y].getFirstName();
-                    buttons[x][y] = new JButton(tempText);
-                    buttons[x][y].setVisible(true);
+                    displayButtons[counter1D] = new JButton(tempText);
+                    displayButtons[counter1D].setVisible(true);
+                    counter1D++;
             }
         }
-        for (int x = 0; x < rowToDisplay.getXdimension(); x++) {
-            for (int y = 0; y < rowToDisplay.getYdimension(); y++) {
-                frame.add(buttons[x][y]);
-            }
+
+        for (int i = 0; i< rowToDisplay.getXdimension() * rowToDisplay.getYdimension() ; i++) {
+            frame.add(displayButtons[i]);
         }
         frame.getContentPane().add(this);
         frame.setVisible(true);
@@ -45,7 +47,7 @@ public class GUI_Grid_Display extends JPanel {
         frame.setResizable(true);
         frame.setSize(800,600);
 
-        frame.setLayout(new GridLayout(uToDisplay.getYdimension() , uToDisplay.getXdimension() , 10, 10));
+        frame.setLayout(new GridLayout(0 , uToDisplay.getXdimension() , 10, 10));
 
         buttons = new JButton[uToDisplay.getYdimension()][uToDisplay.getXdimension()];
 
@@ -61,7 +63,7 @@ public class GUI_Grid_Display extends JPanel {
                 counter1D++;
             }
         }
-        for (int i = 0; i< uToDisplay.getXdimension() *uToDisplay.getYdimension(); i++) {
+        for (int i = 0; i< uToDisplay.getXdimension() *uToDisplay.getYdimension() ; i++) {
             frame.add(displayButtons[i]);
         }
         frame.getContentPane().add(this);
