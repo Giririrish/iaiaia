@@ -4,6 +4,9 @@ public class U_shape extends Classroom{
     int sideRowLength;
     int backRowLength;
     Pupil[][] grid;
+    public Pupil getFromGrid(int x, int y){
+        return grid[x][y];
+    }
     public U_shape(int SideRow , int BackRow, Register register){
         super(register);
         this.sideRowLength = SideRow;
@@ -44,9 +47,11 @@ public class U_shape extends Classroom{
     public void DisplayPlan(){
         System.out.println();
         System.out.println("TEACHER DESK");
+
+
         for(int x = 0 ; x < sideRowLength + 1 ; x ++){
             for(int y = 0 ; y < backRowLength + 2 ; y++){
-                System.out.print(" " +grid[y][x].getInitials() + " ");
+                System.out.print(" " + grid[y][x].getInitials() + " ");
             }
             System.out.println();
         }

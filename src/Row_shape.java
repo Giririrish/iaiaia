@@ -8,6 +8,9 @@ public class Row_shape extends Classroom {// a row shaped classroom can be repre
         this.rowWidth = rowWidth;
         grid = new Pupil[rowLength][rowWidth];
     }
+    public Pupil getFromGrid(int x, int y){
+        return grid[x][y];
+    }
     public void constructPlan(){ //default plan with teacher at the top //no flag or boy girl algorithm
         int counter1D = 0;
         for(int x = 0 ; x < rowWidth ; x ++){

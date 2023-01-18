@@ -102,8 +102,20 @@ public class GUI_Load_Plan extends JPanel implements ActionListener, DocumentLis
 
 
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("Display")){
-
+        if(e.getActionCommand().equals("Display Plan")){
+            //fill this in
+            //creates new instance of grid display obj
+            //if statement for which type is selected from list
+            //
+            int takenIndex = PlanNameList.getSelectedIndex();
+           if (!PlanNameList.getSelectedItem().equals("")) {
+               if (takenIndex > 4) {
+                   takenIndex = takenIndex - 5;
+                   GUI_Grid_Display newDisplay= new GUI_Grid_Display(GUI_Create_Plan.UPlanArrays[takenIndex]);
+               } else {
+                   GUI_Grid_Display newDisplay= new GUI_Grid_Display(GUI_Create_Plan.rowPlanArrays[takenIndex]);
+               }
+           }
         }else if(e.getActionCommand().equals("Update")){
             String firstInit = ToBeSwapped1.getText();
             String secondInit = ToBeSwapped2.getText();

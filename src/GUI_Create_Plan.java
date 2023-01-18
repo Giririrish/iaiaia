@@ -128,7 +128,10 @@ public class GUI_Create_Plan extends JPanel implements ActionListener, DocumentL
                     }else if(SortSelect.getSelectedIndex() == 2){
                         rowPlanArrays[rowPlanCount].setBoyGirl();
                     }
+                rowPlanArrays[rowPlanCount].constructPlan();
+                rowPlanArrays[rowPlanCount].displayPlan();
                 rowPlanCount = rowPlanCount + 1;
+
             }else if(ShapeSelect.getSelectedIndex() == 1 ){
                 UPlanArrays[UPlanCount] = new U_shape(para1,para2,chosenReg());
                 UPlanNames[UPlanCount] = planName;
@@ -137,7 +140,10 @@ public class GUI_Create_Plan extends JPanel implements ActionListener, DocumentL
                 }else if(SortSelect.getSelectedIndex() == 2){
                     UPlanArrays[UPlanCount].setBoyGirl();
                 }
+                UPlanArrays[UPlanCount].constructPlan();
+                UPlanArrays[UPlanCount].DisplayPlan();
                 UPlanCount = UPlanCount + 1;
+
             }
         }
     }
