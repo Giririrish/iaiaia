@@ -17,7 +17,7 @@ public class GUI_Grid_Display extends JPanel {
         frame.setSize(800,600);
 
 
-        frame.setLayout(new GridLayout(0,rowToDisplay.getYdimension(),0,0));
+        frame.setLayout(new GridLayout(0,rowToDisplay.getYdimension(),10,50));
 
         buttons = new JButton[rowToDisplay.getXdimension()][rowToDisplay.getYdimension()];
 

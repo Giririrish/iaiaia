@@ -13,14 +13,14 @@ public class Row_shape extends Classroom {// a row shaped classroom can be repre
     }
     public void constructPlan(){ //default plan with teacher at the top //no flag or boy girl algorithm
         int counter1D = 0;
-        for(int x = 0 ; x < rowWidth ; x ++){
-            for(int y = 0 ; y < rowLength ; y++){
+        for(int x = 0 ; x < rowLength ; x ++){
+            for(int y = 0 ; y < rowWidth ; y++){
                 grid[x][y] = register1.getPupil(counter1D);
                 counter1D++;
             }
         }
-        for(int x = 0 ; x < rowWidth ; x ++){
-            for(int y = 0 ; y < rowLength ; y++){
+        for(int x = 0 ; x < rowLength ; x ++){
+            for(int y = 0 ; y <  rowWidth; y++){
                 if (grid[x][y] == null){
                     grid[x][y] = new Pupil("","",true);
                 }
@@ -31,8 +31,8 @@ public class Row_shape extends Classroom {// a row shaped classroom can be repre
         int xVal;
         int yVal;
         if(xory == true){
-            for(int x = 0 ; x < rowWidth ; x ++){
-                for(int y = 0 ; y < rowLength ; y++){
+            for(int x = 0 ; x < rowLength ; x ++){
+                for(int y = 0 ; y <  rowWidth; y++){
                     if(grid[x][y].getInitials().equals(initials)){
                         xVal = x;
                         return xVal;
@@ -40,8 +40,8 @@ public class Row_shape extends Classroom {// a row shaped classroom can be repre
                 }
             }
         } else if (xory == false){
-            for(int x = 0 ; x < rowWidth ; x ++){
-                for(int y = 0 ; y < rowLength ; y++){
+            for(int x = 0 ; x < rowLength ; x ++){
+                for(int y = 0 ; y < rowWidth ; y++){
                     if(grid[x][y].getInitials().equals(initials)){
                         yVal = y;
                         return yVal;
@@ -67,8 +67,8 @@ public class Row_shape extends Classroom {// a row shaped classroom can be repre
     public void displayPlan(){
         System.out.println();
         System.out.println("TEACHER DESK");
-        for(int x = 0 ; x < rowWidth ; x ++){
-            for(int y = 0 ; y < rowLength ; y++){
+        for(int x = 0 ; x < rowLength ; x ++){
+            for(int y = 0 ; y < rowWidth ; y++){
                 System.out.print(" " +grid[x][y].getInitials() + " ");
             }
             System.out.println();
