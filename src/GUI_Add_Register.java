@@ -128,12 +128,12 @@ public class GUI_Add_Register extends JPanel implements ActionListener, Document
             ManualFileEntryButton.setVisible(false);
             Entry.setVisible(true);
         } else if (e.getActionCommand().equals("Add File Name")) {
-            System.out.println("ADD FILE NAME");
-            String fileEntryValue = FileName.getText();
-            FileEntryReg = new Register(fileEntryValue);
-            FileEntryReg.addAllFilePupils();
-            FileName.setText("");
-            FileEntryReg.displayRegisterInitials();
+                System.out.println("ADD FILE NAME");
+                String fileEntryValue = FileName.getText();
+                FileEntryReg = new Register(fileEntryValue);
+                FileEntryReg.addAllFilePupils();
+                FileName.setText("");
+                FileEntryReg.displayRegisterInitials();
         }
     }
 
